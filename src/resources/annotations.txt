@@ -31,4 +31,16 @@ We suggest that you begin by typing:
   npm start
 
 
-  
+  ***** Pushing this folder for a new github repository 
+
+    - git init
+    - git add -A 
+    - git commit ....
+
+    * Create the repository remote on github
+
+    - git remote add origin https://github.com/lacsousa/primeiro-projeto-react.git
+
+    - git remote -v
+
+    
