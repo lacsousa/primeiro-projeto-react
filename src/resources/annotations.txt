@@ -1,6 +1,14 @@
-What it works at the begin
+What it worked at the begin
 
-** * Update yarn 
+https://efficient-sloth-d85.notion.site/Prettier-e2c6a3ec188c4cce8890a3e16a0d6425
+https://efficient-sloth-d85.notion.site/ESLint-822d59afeafc47e39527be8cabb80b00
+
+https://www.figma.com/design/HOCmxfrElzLpI75LdzFLia/Github-Explorer?node-id=0-1&node-type=CANVAS&t=SryrK4ZF46NGhCBK-0
+
+yarn add eslint -D ( Install at home) ******* 
+yarn add prettier eslint-config-prettier eslint-plugin-prettier -D ( Install at home) ******* 
+
+*** Update yarn 
 
 - npm install -g yarn 
 
@@ -43,4 +51,11 @@ We suggest that you begin by typing:
 
     - git remote -v
 
+***** Install a dependency for routing
+    - yarn add react-router-dom
     
+
+
+        yarn add eslint -D ( Install at home) ******* 
+        yarn add prettier eslint-config-prettier eslint-plugin-prettier -D ( Install at home) ******* 
+    TODO at home
