@@ -1,0 +1,61 @@
+What it worked at the begin
+
+https://efficient-sloth-d85.notion.site/Prettier-e2c6a3ec188c4cce8890a3e16a0d6425
+https://efficient-sloth-d85.notion.site/ESLint-822d59afeafc47e39527be8cabb80b00
+
+https://www.figma.com/design/HOCmxfrElzLpI75LdzFLia/Github-Explorer?node-id=0-1&node-type=CANVAS&t=SryrK4ZF46NGhCBK-0
+
+yarn add eslint -D ( Install at home) ******* 
+yarn add prettier eslint-config-prettier eslint-plugin-prettier -D ( Install at home) ******* 
+
+*** Update yarn 
+
+- npm install -g yarn 
+
+- npm install -g create-react-app
+
+-  create-react-app primeiro-projeto-react --template=typescript
+
+
+Success! Created primeiro-projeto-react at C:\Users\CYFT\Documents\Luciano\MatPesq\Rocketseat\primeiro-projeto-react
+Inside that directory, you can run several commands:
+
+  npm start
+    Starts the development server.
+
+  npm run build
+    Bundles the app into static files for production.
+
+  npm test
+    Starts the test runner.
+
+  npm run eject
+    Removes this tool and copies build dependencies, configuration files
+    and scripts into the app directory. If you do this, you can’t go back!
+
+We suggest that you begin by typing:
+
+  cd primeiro-projeto-react
+  npm start
+
+
+  ***** Pushing this folder for a new github repository 
+
+    - git init
+    - git add -A 
+    - git commit ....
+
+    * Create the repository remote on github
+
+    - git remote add origin https://github.com/lacsousa/primeiro-projeto-react.git
+
+    - git remote -v
+
+***** Install a dependency for routing
+    - yarn add react-router-dom
+    
+
+
+        yarn add eslint -D ( Install at home) ******* 
+        yarn add prettier eslint-config-prettier eslint-plugin-prettier -D ( Install at home) ******* 
+    TODO at home
