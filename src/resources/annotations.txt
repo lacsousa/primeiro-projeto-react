@@ -60,3 +60,6 @@ We suggest that you begin by typing:
 
     - yarn add @types/styled-components -D 
 
+***** Dependencies about CSS 
+    - yarn add polished
+    - yarn add react-icons
