@@ -1,16 +1,67 @@
-import React from "react";
-import { useRouteMatch, Link } from "react-router-dom";
-import { Header, RepositoryInfo, Issues } from "./styles";
-import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import React, { useEffect, useState } from 'react';
+import { useRouteMatch, Link } from 'react-router-dom';
+import { Header, RepositoryInfo, Issues } from './styles';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import api from '../../services/api';
 
-import logoImg from "../../assets/logo.svg";
+import logoImg from '../../assets/logo.svg';
 
 interface RepositoryParams {
     repository_name: string;
 }
 
+interface Repository {
+    full_name: string;
+    description: string;
+    stargazers_count: number;
+    forks_count: number;
+    open_issues_count: number;
+    owner: {
+        login: string;
+        avatar_url: string;
+    };
+}
+
+interface Issue{
+    id: number;
+    title: string;
+    html_url: string;
+    user: { 
+        login: string;
+    }
+}
+
 const Repository: React.FC = () => {
+    const [repository, setRepository] = useState<Repository | null>(null);
+    const [issues, setissues] = useState<Issue[]>([]);
+
     const { params } = useRouteMatch<RepositoryParams>();
+
+    useEffect(() => {
+        api.get(`repos/${params.repository_name}`).then(response => {
+            setRepository(response.data);
+        });
+
+        api.get(`repos/${params.repository_name}/issues`).then(response => {
+            setissues(response.data);
+        });
+
+        // An another way using await sync 
+
+      /*  async function loadData(): Promise<void> { 
+            // You can also use Promise.race
+            const [repository, issues] = await Promise.all([
+                api.get(`repos/${params.repository_name}`),
+                api.get(`repos/${params.repository_name}/issues`)
+            ]);
+
+            console.log(repository);
+            console.log(issues);
+        }
+        loadData();
+      */
+
+    }, [params.repository_name]);
 
     return (
         <>
@@ -21,41 +72,46 @@ const Repository: React.FC = () => {
                     Voltar
                 </Link>
             </Header>
-            <RepositoryInfo>
+
+            { repository && (
+                <RepositoryInfo>
                 <header>
                     <img
-                        src="https://avatars.githubusercontent.com/u/323530?v=4"
-                        alt="Luciano Cordeiro"
+                        src={repository.owner.avatar_url}
+                        alt={repository.owner.login}
                     />
                     <div>
-                        <strong>lacsousa/algorithms</strong>
-                        <p>Descrição do Repositório</p>
+                        <strong>{repository.full_name}</strong>
+                        <p>{repository.description}</p>
                     </div>
                 </header>
                 <ul>
                     <li>
-                        <strong>1000</strong>
+                        <strong>{repository.stargazers_count}</strong>
                         <span>Stars</span>
                     </li>
                     <li>
-                        <strong>48</strong>
+                        <strong>{repository.forks_count}</strong>
                         <span>Forks</span>
                     </li>
                     <li>
-                        <strong>167</strong>
+                        <strong>{repository.open_issues_count}</strong>
                         <span>Issues abertas</span>
                     </li>
                 </ul>
             </RepositoryInfo>
+            )}
 
             <Issues>
-                <Link to="asdsdf">
+                {issues.map(issue => (
+                    <a key={issue.id} href={issue.html_url}>
                     <div>
-                        <strong>aaaaaa</strong>
-                        <p>bbbbbbb</p>
+                        <strong>{issue.title}</strong>
+                        <p>{issue.user.login}</p>
                     </div>
                     <FiChevronRight size={20} />
-                </Link>
+                </a>
+                ))}
             </Issues>
         </>
     );
