@@ -1,5 +1,5 @@
-# primeiro-projeto-react
-A new ReactJS Project
+
+This project registers Github account repositories and shows the issues and other information about that repository. For example, try registering the repository: facebook/react
 
 
 # Getting Started with Create React App
